@@ -1,0 +1,35 @@
+.border-black {
+    border: 1px solid black;
+}
+
+.border-bottom-black {
+    border-bottom: 2px solid white;
+}
+
+.clr-red {
+    color: red
+}
+.border-right-black {
+    border-right: 1px solid black;
+}
+
+.border-left-black {
+    border-left: 1px solid black;
+}
+
+.cursor-pointer {
+    cursor: pointer
+}
+
+.bkgrnd-red {
+    background-color: red;
+}
+
+.clr-white {
+    color: white
+}
+
+.ant-table-cell {
+    padding: 0 !important;
+    text-align: center !important;
+}

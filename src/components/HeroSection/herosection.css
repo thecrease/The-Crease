@@ -1,0 +1,31 @@
+.hero_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    width: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hero_section h1{
+    padding-top: 40px;
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: 0.3rem;
+}
+.hero_section_about{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)), url("../../images/web.jpg");
+}
+.hero_section_contact{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)), url("../../images/web1.jpg");
+}
+.hero_section_ranking{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)), url("../../images/web2.jpg");
+}
+.hero_section_teams{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)), url("../../images/web3.jpg");
+}
+.hero_section_players{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)), url("../../images/web4.jpg");
+}

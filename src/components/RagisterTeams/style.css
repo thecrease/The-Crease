@@ -1,0 +1,111 @@
+.browse-brand-main {
+    background: linear-gradient(0deg,#f9f9f9,#f9f9f9);
+    mix-blend-mode: normal;
+  }
+  .browse-brand-container {
+    margin-top: 50px;
+    padding: 20px 160px;
+    position: relative;
+  }
+  
+  .slick-slider .slick-list, .slick-slider .slick-track {
+    transform: translateZ(0);
+  }
+  .slick-list {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .slick-list, .slick-slider {
+    position: relative;
+    display: block;
+  }
+  
+  .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .slick-initialized .slick-slide {
+    display: block;
+  }
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    margin: 1px;
+    width: 220px !important;
+  }
+  
+  .slick-track:after {
+    clear: both;
+  }
+  .slick-track:after, .slick-track:before {
+    display: table;
+    content: "";
+  }
+  
+  .slick-prev {
+    left: -25px;
+  }
+  .slick-next, .slick-next:focus, .slick-next:hover, .slick-prev, .slick-prev:focus, .slick-prev:hover {
+    color: transparent;
+    outline: none;
+    background: transparent;
+  }
+  .slick-next, .slick-prev {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+  }
+  .slick-next {
+    right: -25px;
+  }
+  
+  .border-black {
+    border: 1px solid rgb(43, 103, 214);
+  }
+  
+  .border-bottom-black {
+    border-bottom: 1px solid black;
+  }
+  
+  .border-red {
+    border: 1px solid red;
+  }
+  
+  .mr-10 {
+    margin-right: 10px;
+  }
+  
+  .border-top-black {
+    border-top: 1px solid black;
+  }
+
+  .border-left-red {
+      border-left: 1px solid red;
+  }
+
+
+
+  .custom_registerTeam h1{
+    background-color: rgb(29, 32, 34);
+    color: white;
+    padding: 12px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 50px;
+  }

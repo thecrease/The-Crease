@@ -1,0 +1,19 @@
+.border-black {
+    border: 2px solid black;
+}
+
+.clr-red {
+    color: red;
+}
+
+.custom_ranking h1{
+    background-color: rgb(29, 32, 34);
+    color: white;
+    padding: 12px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+

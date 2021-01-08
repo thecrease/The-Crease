@@ -1,0 +1,19 @@
+.border-red {
+    border: 2px solid red;
+}
+
+.bkgrnd-black {
+    background-color: black;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.border-right-green {
+    border-right: 1px solid rgb(60, 153, 60);
+}
+
+.border-radius-50 {
+    border-radius: 50%;
+}

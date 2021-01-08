@@ -1,0 +1,8 @@
+.custom_registerPlayers .heading h1{
+    background-color: rgb(29, 32, 34);
+    color: white;
+    padding: 12px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-bottom: 50px;
+}

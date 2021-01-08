@@ -1,0 +1,12 @@
+.table .ant-spin-nested-loading .ant-spin-container .ant-table .ant-table-container .ant-table-content table .ant-table-thead tr .ant-table-cell {
+    width: 20% !important;
+
+}
+
+.clr-blue {
+    color: rgba(64, 64, 206, 0.829)
+}
+
+.border-left-blue {
+    border-right: 1px solid rgba(64, 64, 206, 0.829);
+}

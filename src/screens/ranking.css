@@ -1,0 +1,6 @@
+.custom_tabs a{
+    color: black;
+}
+.custom_tabs .active{
+    font-weight: bold;
+}

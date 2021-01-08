@@ -1,0 +1,23 @@
+.h-180px {
+    height: 120px;
+}
+
+.h-270px {
+    height: 270px;
+}
+
+/*------------Custom Code -----------*/
+
+.custom_blogs .heading{
+    text-align: center;
+    margin: 30px 0;
+}
+.custom_blogs .heading h1{
+    background-color: rgb(29, 32, 34);
+    color: white;
+    padding: 12px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

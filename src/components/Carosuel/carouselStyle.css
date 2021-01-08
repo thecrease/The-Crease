@@ -1,0 +1,28 @@
+.Custom_carousel img{
+    width: 100%;
+    height: 100vh;
+}
+.custom_caption h3{
+    position: absolute;
+    top: unset;
+    right: unset;
+    bottom: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+@media screen and (max-width: 786px){
+    .custom_caption h3{
+        bottom: 300px;
+        left: 24%;
+    }
+}
+
+@media screen and (max-width: 568px){
+    .custom_caption h3{
+        bottom: 300px;
+        left: 5%;
+    }
+}
