@@ -14,6 +14,7 @@ import RightPane from "./RightPane";
 import "./style.css";
 import firebase from "./../firebase/Firebase";
 import { Link } from "react-router-dom";
+import { MDBDataTable } from "mdbreact";
 
 const popularTeams = [
   {

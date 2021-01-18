@@ -273,7 +273,7 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "wicketKeeper") {
+            if (this.state.teamData[i].player_type === "wicketkeeper") {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -284,7 +284,7 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "allRounder") {
+            if (this.state.teamData[i].player_type === "allrounder") {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -355,7 +355,7 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "wicketKeeper") {
+            if (this.state.teamData[i].player_type === "wicketkeeper") {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -366,7 +366,7 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "allRounder") {
+            if (this.state.teamData[i].player_type === "allrounder") {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -527,7 +527,7 @@ class Guru extends Component {
               {this.state.teamData.length > 0 ? (
                 this.state.teamData.map((bat, index) => (
                   <tr>
-                    <td style={{ fontWeight: "bold" }}>{index}</td>
+                    <td style={{ fontWeight: "bold" }}>{index + 1}</td>
                     <td>{bat.name}</td>
                     <td>{bat.player_type}</td>
                     <td>{bat.special_type}</td>
@@ -570,7 +570,7 @@ class Guru extends Component {
                   {this.state.teamData.length > 0 ? (
                     this.state.final_team.map((bat, index) => (
                       <tr>
-                        <td style={{ fontWeight: "bold" }}>{index}</td>
+                        <td style={{ fontWeight: "bold" }}>{index + 1}</td>
                         <td>{bat.name}</td>
                         <td>{bat.player_type}</td>
                         <td>{bat.special_type}</td>
