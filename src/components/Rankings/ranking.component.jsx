@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
+import FormFileLabel from 'react-bootstrap/esm/FormFileLabel';
 import RankingTable from './RankingTables/rankingTables.component';
 
 import './style.css';
+import firebase from './../../firebase/Firebase'
 
 const clubsColumn = [
   {
@@ -16,7 +18,7 @@ const clubsColumn = [
     key: 'name',
   },
   {
-    title: 'Points',
+    title: 'Matches',
     dataIndex: 'points',
     key: 'points',
   },
@@ -27,196 +29,104 @@ const clubsColumn = [
   },
 ];
 
-const clubData = [
+const callRouderColumn = [
   {
-    rank: 1,
-    name: 'Club1',
-    points: '2.5',
-    rating: '9.5',
+    title: 'Rank',
+    dataIndex: 'rank',
+    key: 'rank',
   },
   {
-    rank: 2,
-    name: 'Club2',
-    points: '2.5',
-    rating: '9.5',
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
   },
   {
-    rank: 3,
-    name: 'Club3',
-    points: '2.5',
-    rating: '9.5',
+    title: 'Country',
+    dataIndex: 'points',
+    key: 'points',
   },
-  {
-    rank: 4,
-    name: 'Club4',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 5,
-    name: 'Club5',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 6,
-    name: 'Club6',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 7,
-    name: 'Club7',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 8,
-    name: 'Club8',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 9,
-    name: 'Club9',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 10,
-    name: 'Club10',
-    points: '2.5',
-    rating: '9.5',
-  },
+ 
 ];
+ const Rankings = () => {
 
-const UnisData = [
-  {
-    rank: 1,
-    name: 'Uni1',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 2,
-    name: 'Uni2',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 3,
-    name: 'Uni3',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 4,
-    name: 'Uni4',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 5,
-    name: 'Uni5',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 6,
-    name: 'Uni6',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 7,
-    name: 'Uni7',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 8,
-    name: 'Uni8',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 9,
-    name: 'Uni9',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 10,
-    name: 'Uni10',
-    points: '2.5',
-    rating: '9.5',
-  },
-];
+    const [testteamdata, settestTeamdata] = React.useState([]);
+    const [oditeamdata, setodiTeamdata] = React.useState([]);
+    const [t20teamdata, sett20Teamdata] = React.useState([]);
+    const [allRouderdata, setaLLRounderdata] = React.useState([]);
+  
+    const loadData =async () => {
+      
+      await firebase.database().ref("Rankings").on("value", snapshot => {
+        let registersPlayer = [];
+        snapshot.forEach(snap => {
+          let test_data = []
+          for (let i=0; i<snap.val().test.length ; i++){
+            test_data.push({
+              rank:snap.val().test[i].rank,
+            name:snap.val().test[i].name,
+            points:snap.val().test[i].points,
+            rating:snap.val().test[i].rating
+            })
+          }
 
-const Others = [
-  {
-    rank: 1,
-    name: 'Others1',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 2,
-    name: 'Others2',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 3,
-    name: 'Others3',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 4,
-    name: 'Others4',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 5,
-    name: 'Others5',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 6,
-    name: 'Others6',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 7,
-    name: 'Others7',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 8,
-    name: 'Others8',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 9,
-    name: 'Others9',
-    points: '2.5',
-    rating: '9.5',
-  },
-  {
-    rank: 10,
-    name: 'Others10',
-    points: '2.5',
-    rating: '9.5',
-  },
-];
+          let odi_data = []
+          for (let i=0; i<snap.val().odi.length ; i++){
+            odi_data.push({
+              rank:snap.val().odi[i].rank,
+            name:snap.val().odi[i].name,
+            points:snap.val().odi[i].points,
+            rating:snap.val().odi[i].rating
+            })
+          }
 
-const Rankings = () => {
+          let t20 = []
+          for (let i=0; i<snap.val().t20.length ; i++){
+            t20.push({
+              rank:snap.val().t20[i].rank,
+            name:snap.val().t20[i].name,
+            points:snap.val().t20[i].points,
+            rating:snap.val().t20[i].rating
+            })
+          }
+
+          settestTeamdata(test_data)
+          setodiTeamdata(odi_data)
+          sett20Teamdata(t20)
+          
+        });
+
+        
+
+        // console.log("this is the register data = " ,registersPlayer)
+      });
+
+    
+      
+        await firebase.database().ref("PlayerRankings").limitToFirst(1).on("value", snapshot => {
+          let registersPlayer = [];
+          snapshot.forEach(snap => {
+            let test_data = []
+            for (let i=0; i<snap.val().Allrounder.length ; i++){
+              test_data.push({
+                rank:snap.val().Allrounder[i].rank,
+              name:snap.val().Allrounder[i].name,
+              points:snap.val().Allrounder[i].country,
+              })
+            }
+
+            setaLLRounderdata(test_data)
+          });
+  
+          
+  
+          // console.log("this is the register data = " ,registersPlayer)
+        });
+   
+    }
+
+  React.useEffect(() => {
+    loadData();
+  }, []);
   return (
     <Container className="width-max custom_ranking">
       <Row>
@@ -227,39 +137,33 @@ const Rankings = () => {
         </Col>
         <Col lg={3} md={12}>
           <RankingTable
-            title="TEAM"
+            title="Test"
             clubsColumn={clubsColumn}
-            clubData={clubData}
-            UnisData={UnisData}
-            Others={Others}
+            clubData={testteamdata}
+           
             style={{backgroundColor: '#282C2F'}}
           />
         </Col>
         <Col lg={3} md={12}>
           <RankingTable
-            title="BOWLERS"
+            title="One day"
             clubsColumn={clubsColumn}
-            clubData={clubData}
-            UnisData={UnisData}
-            Others={Others}
+            clubData={oditeamdata}
+           
           />
         </Col>
         <Col lg={3} md={12}>
           <RankingTable
-            title="BATSMAN"
+            title="T20"
             clubsColumn={clubsColumn}
-            clubData={clubData}
-            UnisData={UnisData}
-            Others={Others}
+            clubData={t20teamdata}
           />
         </Col>
         <Col lg={3} md={12}>
           <RankingTable
             title="All ROUNDERS"
-            clubsColumn={clubsColumn}
-            clubData={clubData}
-            UnisData={UnisData}
-            Others={Others}
+            clubsColumn={callRouderColumn}
+            clubData={allRouderdata}
           />
         </Col>
       </Row>

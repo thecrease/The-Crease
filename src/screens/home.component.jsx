@@ -7,19 +7,25 @@ import RegisterTeams from '../components/RagisterTeams/ragisterTeams.component';
 import Rankings from '../components/Rankings/ranking.component';
 import Button from 'react-bootstrap/Button'
 import Carosuel from '../components/Carosuel/Carosuel';
+import CardSlider from '../components/CardSlider/cardSlider.component';
 
 const HomeScreen = () => {
+
+  const downloadApk = ()=>{
+    return require('./../apk/thecrease.apk')
+  }
   return (
     <>
       <HeaderComponent />
       <Carosuel />
       <Blogs />
+      <CardSlider />
       <Rankings />
       <RegisterTeams />
       <RegisterPlayers />
       <div className="banner_app">
         <h3>Download our Android app to get registered now.</h3>
-        <Button variant="outline-secondary"><i className="fab fa-google-play"></i> Download</Button>
+        <Button variant="outline-secondary" ><i className="fab fa-google-play"></i><a href={require('./../apk/thecrease.apk')}>Download</a> </Button>
       </div>
       
       <Footer />

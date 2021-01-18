@@ -41,7 +41,7 @@ const RankingTable = ({ title, clubsColumn, clubData, UnisData, Others }) => {
               : 'border-none cursor-pointer'
           }
         >
-          Clubs
+          
         </h5>
         <h5
           onClick={uniBtn}
@@ -52,7 +52,7 @@ const RankingTable = ({ title, clubsColumn, clubData, UnisData, Others }) => {
               : 'border-none cursor-pointer '
           }
         >
-          Uni's
+       
         </h5>
         <h5
           onClick={othersBtn}
@@ -63,7 +63,7 @@ const RankingTable = ({ title, clubsColumn, clubData, UnisData, Others }) => {
               : 'border-none cursor-pointer'
           }
         >
-          Others
+         
         </h5>
       </div>
       <Table

@@ -2,6 +2,7 @@ import React from 'react';
 import { getSliderConfig } from '../../utils/sliderConfig';
 import { SliderNextArrow, SliderPrevArrow } from '../CardSlider/sliderNavigation.component';
 import Slider from 'react-slick';
+import firebase from './../../firebase/Firebase'
 
 import './style.css';
 
@@ -49,6 +50,38 @@ const team = [
 ];
 
 const RegisterTeams = () => {
+  const [data, setdata] = React.useState([]);
+
+  const loadData =async () => {
+    
+    await firebase.database().ref("Users").on("value", snapshot => {
+      let registersPlayer = [];
+      let register_teams = [];
+      snapshot.forEach(snap => {
+        if (!registersPlayer.includes(snap.val().teamName) && snap.val().teamName != ""){
+          registersPlayer.push(snap.val().teamName);
+        }
+          
+      });
+
+      registersPlayer.forEach(value=>{
+        let object = {
+          name:value,
+          level:'Team'
+        }
+        register_teams.push(object)
+      })
+
+      setdata(register_teams)
+      // console.log("this is the register data = " ,registersPlayer)
+    });
+
+  }
+
+
+  React.useEffect(() => {
+    loadData();
+  }, []);
   const settings = getSliderConfig(<SliderNextArrow />, <SliderPrevArrow />);
   return (
     <div className="browse-brand-main custom_registerTeam">
@@ -57,8 +90,8 @@ const RegisterTeams = () => {
           <h1 className="clr-white">REGISTERED TEAMS</h1>
         </div>
         <Slider {...settings}>
-          {team &&
-            team.map((i, index) => (
+          {data &&
+            data.map((i, index) => (
               <div key={index} className="container" > 
                 <div style={{backgroundColor: '#282C2F', padding: '5px', borderRadius: '10px'}}>
                 <div className="w-100">
@@ -72,7 +105,7 @@ const RegisterTeams = () => {
                     <p className="m-0 p-0" style={{color: 'whitesmoke'}}>{i.level}</p>
                   </div>
                   <div className="w-50 d-flex justify-content-center align-items-center">
-                    <p className="m-0 p-0" style={{color: 'whitesmoke'}}>{i.position}</p>
+                    <p className="m-0 p-0" style={{color: 'whitesmoke'}}>{index}</p>
                   </div>
                   </div>
                   </div>
