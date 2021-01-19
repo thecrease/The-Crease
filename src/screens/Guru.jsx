@@ -60,18 +60,20 @@ let teams = {
       role: "bowler",
       Specification: "offspin",
     },
+
     {
       position: "9",
-      name: "Tim Southee",
-      role: "bowler",
-      Specification: "fast",
-    },
-    {
-      position: "10",
       name: "Neil Wagner",
       role: "bowler",
       Specification: "medium",
     },
+    {
+      position: "10",
+      name: "Tim Southee",
+      role: "bowler",
+      Specification: "fast",
+    },
+
     {
       position: "11",
       name: "Trent Boult",
@@ -107,15 +109,15 @@ let teams = {
     },
     {
       position: "5",
-      name: "Jos Buttler",
-      role: "wicketkeeper",
-      Specification: "finisher",
-    },
-    {
-      position: "6",
       name: "Ben Stokes",
       role: "allrounder",
       Specification: "batting",
+    },
+    {
+      position: "6",
+      name: "Jos Buttler",
+      role: "wicketkeeper",
+      Specification: "finisher",
     },
 
     {
@@ -124,6 +126,7 @@ let teams = {
       role: "allrounder",
       Specification: "bowling",
     },
+
     {
       position: "8",
       name: "Liam Plunkett",
@@ -138,15 +141,16 @@ let teams = {
     },
     {
       position: "10",
-      name: "Adil Rashid",
-      role: "bowler",
-      Specification: "leg break",
-    },
-    {
-      position: "11",
       name: "Mark Wood",
       role: "bowler",
       Specification: "fast",
+    },
+
+    {
+      position: "11",
+      name: "Adil Rashid",
+      role: "bowler",
+      Specification: "legbreak",
     },
   ],
 };
@@ -262,7 +266,52 @@ class Guru extends Component {
       } else {
         if (this.state.format_val == "test") {
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "batsman") {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "opener"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "toporder"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "middleorder"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "finisher"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -295,7 +344,52 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "bowler") {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type == "offspin"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type == "legbreak"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type == "medium"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type == "fast"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -332,11 +426,14 @@ class Guru extends Component {
               });
 
               this.state.comments.push({
+                memer_no: teams.test[i].position,
                 name: this.state.data_align[i].name,
                 have_role: this.state.data_align[i].player_type,
                 have_special: this.state.data_align[i].special_type,
                 require_role: teams.test[i].role,
                 require_special: teams.test[i].Specification,
+                team_name: teams.test[i].name,
+                team_position: teams.test[i].position,
               });
             }
           }
@@ -344,7 +441,10 @@ class Guru extends Component {
           this.setState({ final_team: final });
         } else if (this.state.format_val === "odi") {
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "batsman") {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "opener"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -355,7 +455,10 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "wicketkeeper") {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "toporder"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -366,7 +469,10 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "allrounder") {
+            if (
+              this.state.teamData[i].player_type === "batsman" &&
+              this.state.teamData[i].special_type == "middleorder"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -377,7 +483,108 @@ class Guru extends Component {
           }
 
           for (let i = 0; i < this.state.teamData.length; i++) {
-            if (this.state.teamData[i].player_type === "bowler") {
+            if (
+              this.state.teamData[i].player_type === "allrounder" &&
+              this.state.teamData[i].special_type === "batting"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "wicketkeeper" &&
+              this.state.teamData[i].special_type === "finisher"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "wicketkeeper" &&
+              this.state.teamData[i].special_type === "toporder"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "wicketkeeper" &&
+              this.state.teamData[i].special_type === "middleorder"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "allrounder" &&
+              this.state.teamData[i].special_type === "bowling"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type === "medium"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type === "fast"
+            ) {
+              this.state.data_align.push({
+                position: this.state.teamData[i].position,
+                name: this.state.teamData[i].name,
+                player_type: this.state.teamData[i].player_type,
+                special_type: this.state.teamData[i].special_type,
+              });
+            }
+          }
+
+          for (let i = 0; i < this.state.teamData.length; i++) {
+            if (
+              this.state.teamData[i].player_type === "bowler" &&
+              this.state.teamData[i].special_type === "legbreak"
+            ) {
               this.state.data_align.push({
                 position: this.state.teamData[i].position,
                 name: this.state.teamData[i].name,
@@ -414,11 +621,14 @@ class Guru extends Component {
                 status: "fail",
               });
               this.state.comments.push({
+                memer_no: teams.limited_over[i].position,
                 name: this.state.data_align[i].name,
                 have_role: this.state.data_align[i].player_type,
                 have_special: this.state.data_align[i].special_type,
                 require_role: teams.limited_over[i].role,
                 require_special: teams.limited_over[i].Specification,
+                team_name: teams.limited_over[i].name,
+                team_position: teams.limited_over[i].position,
               });
             }
           }
@@ -603,7 +813,10 @@ class Guru extends Component {
                           {result.have_role} as a speciality{" "}
                           {result.have_special} but according to guru you
                           require the {result.require_role} which is good in{" "}
-                          {result.require_special}
+                          {result.require_special} {<br />} For example{" "}
+                          {result.team_name} has been an amazing choice for
+                          number {result.memer_no} as a {result.require_special}{" "}
+                          {result.require_role}
                         </li>
                       );
                     })}

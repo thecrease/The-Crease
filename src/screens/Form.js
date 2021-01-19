@@ -788,38 +788,58 @@ const Form = (props) => {
       .on("value", (snapshot) => {
         snapshot.forEach(async function (snap) {
           let test_data = [];
-          for (let i = 0; i < 30; i++) {
+          for (let i = 0; i < snap.val().pakistan.length; i++) {
             console.log("the snap value", snap.val().pakistan[i].n);
             test_data.push({
               id: snap.val().pakistan[i].Id,
               name: snap.val().pakistan[i].n,
+              link: (
+                <Link to={`/player/${snap.val().pakistan[i].Id}/pakistan`}>
+                  {snap.val().pakistan[i].n}
+                </Link>
+              ),
             });
           }
           await setPaksetdata(test_data);
 
           let india_data = [];
-          for (let i = 0; i < 30; i++) {
+          for (let i = 0; i < snap.val().india.length; i++) {
             india_data.push({
               id: snap.val().india[i].Id,
               name: snap.val().india[i].n,
+              link: (
+                <Link to={`/player/${snap.val().india[i].Id}/india`}>
+                  {snap.val().india[i].n}
+                </Link>
+              ),
             });
           }
           await setIndsetdata(india_data);
 
           let eng_data = [];
-          for (let i = 0; i < 30; i++) {
+          for (let i = 0; i < snap.val().england.length; i++) {
             eng_data.push({
               id: snap.val().england[i].Id,
               name: snap.val().england[i].n,
+              link: (
+                <Link to={`/player/${snap.val().england[i].Id}/england`}>
+                  {snap.val().england[i].n}
+                </Link>
+              ),
             });
           }
           await setEngsetdata(eng_data);
 
           let aus_data = [];
-          for (let i = 0; i < 30; i++) {
+          for (let i = 0; i < snap.val().australia.length; i++) {
             aus_data.push({
               id: snap.val().australia[i].Id,
               name: snap.val().australia[i].n,
+              link: (
+                <Link to={`/player/${snap.val().australia[i].Id}/australia`}>
+                  {snap.val().australia[i].n}
+                </Link>
+              ),
             });
           }
           await setAusdata(aus_data);
@@ -939,7 +959,7 @@ const Form = (props) => {
               <Tab.Content>
                 <Tab.Pane eventKey="Pakistan">
                   <div className="container">
-                    <Table striped bordered hover variant="light">
+                    {/* <Table striped bordered hover variant="light">
                       <tbody>
                         {pakdata.map((movie) => (
                           <tr key={movie.id}>
@@ -951,7 +971,30 @@ const Form = (props) => {
                           </tr>
                         ))}
                       </tbody>
-                    </Table>
+                    </Table> */}
+
+                    <MDBDataTable
+                      striped
+                      bordered
+                      small
+                      data={{
+                        columns: [
+                          {
+                            label: "Name",
+                            field: "name",
+                            sort: "asc",
+                            width: 150,
+                          },
+                          {
+                            label: "Link",
+                            field: "link",
+                            sort: "asc",
+                            width: 150,
+                          },
+                        ],
+                        rows: pakdata,
+                      }}
+                    />
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="India">

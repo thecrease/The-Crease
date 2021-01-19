@@ -148,36 +148,6 @@ export default class Player extends Component {
                 : this.state.playerData[0].n}
             </p>
 
-            <p style={{ color: "grey", fontSize: "15px", textAlign: "left" }}>
-              <b>Born:</b> February 15, 2003
-            </p>
-
-            <p
-              style={{
-                color: "grey",
-                fontWeight: "bold",
-                fontSize: "15px",
-                textAlign: "left",
-              }}
-            >
-              <b>Current age:</b> 17 years 260 days
-            </p>
-
-            <p
-              style={{
-                color: "grey",
-                fontWeight: "bold",
-                fontSize: "15px",
-                textAlign: "left",
-              }}
-            >
-              <b>Major teams:</b> Pakistan, Centeral Punjab (Pakistan),
-              <br />
-              Pakistan Under-16s, Pakistan Under-19s, Quetta Gladiators,
-              <br />
-              Zarai Taraqiati Bank Limited
-            </p>
-
             <p
               style={{
                 color: "grey",
@@ -190,17 +160,6 @@ export default class Player extends Component {
               {this.state.playerData.length === 0
                 ? null
                 : this.state.playerData[0].d}
-            </p>
-
-            <p
-              style={{
-                color: "grey",
-                fontWeight: "bold",
-                fontSize: "15px",
-                textAlign: "left",
-              }}
-            >
-              <b>Batting Style:</b> Right-hand Bat
             </p>
 
             <p

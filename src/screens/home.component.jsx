@@ -18,7 +18,7 @@ const HomeScreen = () => {
       <HeaderComponent />
       <Carosuel />
       {/* <Blogs /> */}
-      <CardSlider />
+      {/* <CardSlider /> */}
       <Rankings />
       <RegisterTeams />
       <RegisterPlayers />
