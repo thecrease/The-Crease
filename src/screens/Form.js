@@ -999,53 +999,80 @@ const Form = (props) => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="India">
                   <div className="container">
-                    <Table striped bordered hover variant="light">
-                      <tbody>
-                        {inddata.map((movie) => (
-                          <tr key={movie.id}>
-                            <td>
-                              <Link to={`/player/${movie.id}/india`}>
-                                {movie.name}
-                              </Link>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
+                  <MDBDataTable
+                      striped
+                      bordered
+                      small
+                      data={{
+                        columns: [
+                          {
+                            label: "Name",
+                            field: "name",
+                            sort: "asc",
+                            width: 150,
+                          },
+                          {
+                            label: "Link",
+                            field: "link",
+                            sort: "asc",
+                            width: 150,
+                          },
+                        ],
+                        rows: inddata,
+                      }}
+                    />
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="England">
                   <div className="container">
-                    <Table striped bordered hover variant="light">
-                      <tbody>
-                        {engdata.map((movie) => (
-                          <tr key={movie.id}>
-                            <td>
-                              <Link to={`/player/${movie.id}/england`}>
-                                {movie.name}
-                              </Link>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
+                  <MDBDataTable
+                      striped
+                      bordered
+                      small
+                      data={{
+                        columns: [
+                          {
+                            label: "Name",
+                            field: "name",
+                            sort: "asc",
+                            width: 150,
+                          },
+                          {
+                            label: "Link",
+                            field: "link",
+                            sort: "asc",
+                            width: 150,
+                          },
+                        ],
+                        rows: engdata,
+                      }}
+                    />
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="Austrlia">
                   <div className="container">
-                    <Table striped bordered hover variant="light">
-                      <tbody>
-                        {ausdata.map((movie) => (
-                          <tr key={movie.id}>
-                            <td>
-                              <Link to={`/player/${movie.id}/aus`}>
-                                {movie.name}
-                              </Link>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
+                  <MDBDataTable
+                      striped
+                      bordered
+                      small
+                      data={{
+                        columns: [
+                          {
+                            label: "Name",
+                            field: "name",
+                            sort: "asc",
+                            width: 150,
+                          },
+                          {
+                            label: "Link",
+                            field: "link",
+                            sort: "asc",
+                            width: 150,
+                          },
+                        ],
+                        rows: ausdata,
+                      }}
+                    />
                   </div>
                 </Tab.Pane>
               </Tab.Content>
